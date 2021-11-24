@@ -20,12 +20,12 @@ NEWSPIDER_MODULE = 'liepinSpider.spiders'
 ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
-CONCURRENT_REQUESTS = 3
+CONCURRENT_REQUESTS = 2
 
 # Configure a delay for requests for the same website (default: 0)
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-DOWNLOAD_DELAY = 1
+DOWNLOAD_DELAY = 10
 # The download delay setting will honor only one of:
 #CONCURRENT_REQUESTS_PER_DOMAIN = 16
 #CONCURRENT_REQUESTS_PER_IP = 16
@@ -39,9 +39,15 @@ DOWNLOAD_DELAY = 1
 # Override the default request headers:
 DEFAULT_REQUEST_HEADERS = {
   'user_agent': my_fake_useragent.UserAgent().random(),
-  'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-  'Accept-Language': 'en',
+  'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,'
+            'application/signed-exchange;v=b3;q=0.9',
+  'Accept-Language': 'zh-CN,zh;q=0.9',
+  'Accept-Encoding': 'gzip, deflate, br',
+  'Cache-Control': 'max-age=0',
+  'Host': 'www.liepin.com',
+  'Referer': 'https://www.liepin.com/zhaopin/?imscid=R000000035&key=java&dqs=050020&d_sfrom=search_sub_site'
 }
+
 
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
